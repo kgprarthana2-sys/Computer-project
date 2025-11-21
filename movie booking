@@ -1,0 +1,158 @@
+class Movie:
+    def __init__(self, name, time, rating, subtitle, language, dimension, room, price, seats):
+        self.name = name
+        self.time = time
+        self.rating = rating
+        self.subtitle = subtitle
+        self.language = language
+        self.dimension = dimension
+        self.room = room
+        self.price = price
+        self.total_seats = seats
+        self.booked = []   # List to hold booked seat numbers
+
+    def show_details(self):
+        print("\nMovie:", self.name)
+        print("Time:", self.time)
+        print("Rating:", self.rating)
+        print("Subtitles:", self.subtitle)
+        print("Language:", self.language)
+        print("Dimension:", self.dimension)
+        print("Theater Room:", self.room)
+        print("Available Seats:", self.total_seats - len(self.booked))
+        print("Ticket Price: ₹", self.price)
+
+    def show_seats(self):
+        print("\nSeat Layout (1 = Available, X = Booked)\n")
+        for i in range(1, self.total_seats + 1):
+            if i in self.booked:
+                print("X", end=" ")
+            else:
+                print("1", end=" ")
+            if i % 10 == 0:
+                print()
+
+    def book_seat(self, seat_no):
+        if seat_no < 1 or seat_no > self.total_seats:
+            print("Invalid seat number!")
+        elif seat_no in self.booked:
+            print("Seat already taken!")
+        else:
+            self.booked.append(seat_no)
+            print("Seat", seat_no, "booked successfully!")
+            print("Amount to pay: ₹", self.price)
+
+    def show_booked_seats(self):
+        if len(self.booked) == 0:
+            print("No seats booked yet.")
+        else:
+            print("Booked Seats:", self.booked)
+
+I
+movies = [
+    Movie("RRR", "10:00 AM", 8.9, "English", "Telugu", "2D", 1, 180, 40),
+    Movie("Leo", "01:00 PM", 8.6, "Hindi", "Tamil", "3D", 2, 250, 50),
+    Movie("Hridayam", "04:00 PM", 7.8, "English", "Malayalam", "IMAX", 3, 350, 60),
+    Movie("Avengers Endgame", "07:30 PM", 9.0, "English", "English", "IMAX 3D", 4, 400, 70)
+]
+
+
+def show_movie_list():
+    print("\n----- Now Showing -----")
+    for i in range(len(movies)):
+        print(i+1, ".", movies[i].name, "-", movies[i].time, "-", movies[i].dimension)
+
+
+def select_movie():
+    show_movie_list()
+    choice = int(input("\nSelect movie number: "))
+    return movies[choice - 1]
+
+
+while True:
+    print("\n========= CINEMA TICKET BOOKING =========")
+    print("1. View Movies")
+    print("2. Movie Details")
+    print("3. Show Seats")
+    print("4. Book Seat")
+    print("5. View Booked Seats")
+    print("6. Exit")
+
+    option = int(input("Enter your choice: "))
+
+    if option == 1:
+        show_movie_list()
+
+    elif option == 2:
+        movie = select_movie()
+        movie.show_details()
+
+    elif option == 3:
+        movie = select_movie()
+        movie.show_seats()
+
+    elif option == 4:
+        movie = select_movie()
+        movie.show_seats()
+        seat_no = int(input("Enter seat number to book: "))
+        movie.book_seat(seat_no)
+
+    elif option == 5:
+        movie = select_movie()
+        movie.show_booked_seats()
+
+    elif option == 6:
+        print("Thank you for using the Cinema Ticket Booking System.")
+        break
+
+    else:
+        print("Invalid Choice! Try again.")
+
+
+OUTPUT:-
+----- WELCOME TO PVR CINEMA -----
+
+Movies Available:
+1. RRR
+2. Leo
+3. Hridayam
+4. Avengers Endgame
+
+Enter movie choice (1-4): 2
+
+You selected: Leo
+Language: Tamil, Telugu
+Rating: 8.1/10
+Available Timings: 10:00 AM, 1:30 PM, 6:00 PM, 9:30 PM
+Ticket Price: Rs. 220
+Subtitles: Available
+Theater Room Number: 3
+Dimension: 2D
+
+Available seats: ['A1', 'A2', 'A3', 'A4', 'A5', 'B1', 'B2', 'B3', 'B4', 'B5']
+
+How many seats do you want to book? 3
+
+Enter seat numbers one by one:
+Seat 1: A3
+Seat 2: B1
+Seat 3: A1
+
+Booking Successful!
+
+----- BOOKING SUMMARY -----
+Movie: Leo
+Language: Tamil, Telugu 
+Show Time: 1:30 PM
+Seats Booked: ['A3', 'B1', 'A1']
+Total Amount: Rs. 660
+Subtitles: Available
+Rating: 8.1/10
+Theater Room: 3
+Dimension: 2D
+----------------------------
+
+Remaining available seats: ['A2', 'A4', 'A5', 'B2', 'B3', 'B4', 'B5']
+
+Thank you for booking tickets!
+Enjoy the movie :)
