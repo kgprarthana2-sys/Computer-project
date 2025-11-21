@@ -49,10 +49,11 @@ class Movie:
             print("Booked Seats:", self.booked)
 
 
+# List of movies
 movies = [
-    Movie("RRR", "10:00 AM", 8.9, "English", "Telugu", "2D", 1, 180, 40),
+    Movie("Jailer", "10:00 AM", 8.9, "English", "Tamil", "2D", 1, 180, 40),
     Movie("Leo", "01:00 PM", 8.6, "Hindi", "Tamil", "3D", 2, 250, 50),
-    Movie("Hridayam", "04:00 PM", 7.8, "English", "Malayalam", "IMAX", 3, 350, 60),
+    Movie("Brahmastra", "04:00 PM", 7.8, "English", "Hindi", "IMAX", 3, 350, 60),
     Movie("Avengers Endgame", "07:30 PM", 9.0, "English", "English", "IMAX 3D", 4, 400, 70)
 ]
 
@@ -69,6 +70,7 @@ def select_movie():
     return movies[choice - 1]
 
 
+# Main Menu
 while True:
     print("\n========= CINEMA TICKET BOOKING =========")
     print("1. View Movies")
@@ -110,49 +112,29 @@ while True:
 
 
 OUTPUT:-
------ WELCOME TO PVR CINEMA -----
+========= CINEMA TICKET BOOKING =========
+1. View Movies
+2. Movie Details
+3. Show Seats
+4. Book Seat
+5. View Booked Seats
+6. Exit
+Enter your choice: 2
 
-Movies Available:
-1. RRR
-2. Leo
-3. Hridayam
-4. Avengers Endgame
+----- Now Showing -----
+1 . Jailer - 10:00 AM - 2D
+2 . Leo - 01:00 PM - 3D
+3 . Brahmastra - 04:00 PM - IMAX
+4 . Avengers Endgame - 07:30 PM - IMAX 3D
 
-Enter movie choice (1-4): 2
+Select movie number: 1
 
-You selected: Leo
-Language: Tamil, Telugu
-Rating: 8.1/10
-Available Timings: 10:00 AM, 1:30 PM, 6:00 PM, 9:30 PM
-Ticket Price: Rs. 220
-Subtitles: Available
-Theater Room Number: 3
+Movie: Jailer
+Time: 10:00 AM
+Rating: 8.9
+Subtitles: English
+Language: Tamil
 Dimension: 2D
-
-Available seats: ['A1', 'A2', 'A3', 'A4', 'A5', 'B1', 'B2', 'B3', 'B4', 'B5']
-
-How many seats do you want to book? 3
-
-Enter seat numbers one by one:
-Seat 1: A3
-Seat 2: B1
-Seat 3: A1
-
-Booking Successful!
-
------ BOOKING SUMMARY -----
-Movie: Leo
-Language: Tamil, Telugu 
-Show Time: 1:30 PM
-Seats Booked: ['A3', 'B1', 'A1']
-Total Amount: Rs. 660
-Subtitles: Available
-Rating: 8.1/10
-Theater Room: 3
-Dimension: 2D
-----------------------------
-
-Remaining available seats: ['A2', 'A4', 'A5', 'B2', 'B3', 'B4', 'B5']
-
-Thank you for booking tickets!
-Enjoy the movie :)
+Theater Room: 1
+Available Seats: 40
+Ticket Price: ₹ 180
