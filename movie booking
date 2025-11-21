@@ -48,7 +48,7 @@ class Movie:
         else:
             print("Booked Seats:", self.booked)
 
-I
+
 movies = [
     Movie("RRR", "10:00 AM", 8.9, "English", "Telugu", "2D", 1, 180, 40),
     Movie("Leo", "01:00 PM", 8.6, "Hindi", "Tamil", "3D", 2, 250, 50),
